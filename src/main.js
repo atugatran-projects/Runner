@@ -16,10 +16,10 @@ kaboom({
 
 // load assets
 // Background
-loadSprite("floor", "/sprites/background/floor.png")
-loadSprite("cloud", "/sprites/background/cloud.png")
+loadSprite("floor", "sprites/background/floor.png")
+loadSprite("cloud", "sprites/background/cloud.png")
 // Enimies
-loadSprite("cactus", "/sprites/enemies/cactus.png")
+loadSprite("cactus", "sprites/enemies/cactus.png")
 
 
 function addButton(txt, p, f) {
@@ -59,11 +59,11 @@ const start = () => {
 }
 
 addButton("Boy", vec2(width() / 2, height() / 2 - 50), () => {
-	loadSprite("person", "/sprites/Player/boy.png")
+	loadSprite("person", "sprites/Player/boy.png")
 	start()
 })
 addButton("Girl", vec2(width() / 2, height() / 2 + 50), () => {
-	loadSprite("person", "/sprites/Player/girl.png")
+	loadSprite("person", "sprites/Player/girl.png")
 	start()
 })
 addButton("You Are", vec2(width() / 2, height() / 3 - 20), () => debug.log("Pls Select Boy & Girl"))
