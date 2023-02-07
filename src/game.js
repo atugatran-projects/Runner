@@ -1,12 +1,17 @@
-import { spawnFloor, spawnCactus, cloud, controls  } from "./addObjects";
+import { spawnFloor, spawnCactus, cloud, controls, Sounds } from "./addObjects";
 // Variables
 const JUMP_FORCE = 800
 
 const game = () => {
     scene("game", () => {
+        // sounds
+        let backgroundMusic = play("bgMusic", { volume: 0.6, loop: true });
+        let jumpMusic;
+        let gameOverMusic;
+
         // define gravity
         gravity(2400)
-
+        backgroundMusic.play()
         // add Player
         const player = add([
             sprite("person"),
@@ -18,12 +23,13 @@ const game = () => {
 
         // Jump Func
         function jump() {
+            jumpMusic = play("jumpMusic", { volume: 0.6 });
             if (player.isGrounded()) {
                 player.jump(JUMP_FORCE)
             }
         }
         onKeyPress("up", jump)
-        onClick(jump)
+        // onClick(jump)
 
         //  spawning Enimies
         spawnCactus()
@@ -35,9 +41,10 @@ const game = () => {
 
         // lose if player collides with any game obj with tag "Enemy"
         player.onCollide("Enemy", () => {
+            backgroundMusic.pause();
+            gameOverMusic = play("gameOverMusic", { volume: 0.6 });
             // go to "lose" scene and pass the score
             go("lose", score)
-            burp()
         })
 
         // keep track of score

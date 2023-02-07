@@ -4,7 +4,7 @@ let SPEED = 400
 
 setInterval(() => {
     SPEED = SPEED + 5
-}, 3000);
+}, 2000);
 
 // Background
 function spawnFloor() {
@@ -46,7 +46,7 @@ function spawnCactus() {
         "Enemy",
     ])
     // wait a random amount of time to spawn next tree
-    wait(rand(1.6, 1), spawnCactus)
+    wait(rand(1.3, 1), spawnCactus)
 }
 
 function controls() {
@@ -82,6 +82,5 @@ function boyGirl() {
         scale(5),
     ])
 }
-
 
 module.exports = { spawnFloor, spawnCactus, cloud, controls, boyGirl }

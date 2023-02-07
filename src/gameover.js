@@ -18,8 +18,10 @@ const gameOver = () => {
             origin("center"),
         ])
 
-        onKeyPress("a", () => go("game"))
-        onClick(() => go("game"))
+        onKeyPress("a", () => {
+            selectMusic = play("selectMusic", { volume: 0.6 });
+            go("game")
+        })
     })
 }
 
