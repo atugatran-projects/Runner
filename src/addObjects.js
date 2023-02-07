@@ -49,17 +49,39 @@ function spawnCactus() {
     wait(rand(1.6, 1), spawnCactus)
 }
 
-function controls(){
+function controls() {
     add([
         text("(A) Reset"),
-        pos(width() -150, height() - 80),
+        pos(width() - 150, height() - 80),
         scale(2),
     ])
     add([
         text("(^) Jump"),
-        pos(width() -150, height() - 50),
+        pos(width() - 150, height() - 50),
         scale(2),
     ])
 }
 
-module.exports = { spawnFloor, spawnCactus, cloud,controls }
+function boyGirl() {
+    add([
+        text("Pls Click B & G"),
+        color('0,0,0'),
+        pos(width() / 2 - 200, height() / 2 - 150),
+        scale(5),
+    ])
+    add([
+        text("(B) Boy"),
+        color('0,0,0'),
+        pos(width() / 2 - 100, height() / 2 - 80),
+        scale(5),
+    ])
+    add([
+        text("(G) Girl"),
+        color('0,0,0'),
+        pos(width() / 2 - 100, height() / 2),
+        scale(5),
+    ])
+}
+
+
+module.exports = { spawnFloor, spawnCactus, cloud, controls, boyGirl }
